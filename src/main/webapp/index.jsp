@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<%@ include file="jsp/header.jsp" %>
+<jsp:include page="jsp/header.jsp"/>
 <div class="welcome">
     <h1>🎆 АртТелеком поздравляет Вас 🎆</h1>
     <h1>🎄 с Рождеством и Новым 2026 Годом! 🎄</h1>

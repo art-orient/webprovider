@@ -3,10 +3,10 @@
 <html>
   <head>
     <title>АртТелеком - Базовый тариф</title>
-      <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
-    <%@ include file="header.jsp" %>
+  <body class="tariff-page">
+  <jsp:include page="header.jsp"/>
     <h1>Базовый тариф</h1>
     <p>Простой и доступный тариф для ежедневного использования.</p>
     <p>Скидка 20% до конца января!</p>

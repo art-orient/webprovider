@@ -6,8 +6,8 @@
     <title>АртТелеком - Премиум тариф</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
-<%@ include file="header.jsp" %>
+<body class="tariff-page">
+<jsp:include page="header.jsp"/>
 <h1>Премиум тариф</h1>
 <p>Максимум возможностей для требовательных клиентов.</p>
 <p>Скидка 30% до конца января!</p>
