@@ -4,3 +4,6 @@ target/
 *.iml
 *.ipr
 logs/
+.mvn
+mvnw
+mvnw.cmd

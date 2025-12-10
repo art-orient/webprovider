@@ -1,7 +1,41 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%--<c:if test="${sessionScope.language != null}">--%>
+<%--    <fmt:setLocale value="${sessionScope.language}"/>--%>
+<%--</c:if>--%>
+<%--<fmt:setBundle basename="ui"/>--%>
 <!DOCTYPE html>
 <html>
-<head><title>Web</title></head>
+<head>
+    <title>ArtTelecom - Greetings</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
 <body>
-<h2>Web app is running!</h2>
+<%@ include file="jsp/header.jsp" %>
+<div class="welcome">
+    <h1>🎆 АртТелеком поздравляет Вас 🎆</h1>
+    <h1>🎄 с Рождеством и Новым 2026 Годом! 🎄</h1>
+    <p>Специальные праздничные скидки на тарифы — только до конца января!</p>
+</div>
+
+<div class="tariffs">
+    <div class="tariff-card">
+        <h3>Базовый</h3>
+        <p>Простой и доступный тариф</p>
+        <a href="jsp\tariff-basic.jsp">Подробнее</a>
+    </div>
+    <div class="tariff-card">
+        <h3>Премиум</h3>
+        <p>Максимум возможностей</p>
+        <a href="jsp\tariff-premium.jsp">Подробнее</a>
+    </div>
+    <div class="tariff-card">
+        <h3>Семейный</h3>
+        <p>Для всей семьи</p>
+        <a href="jsp\tariff-family.jsp">Подробнее</a>
+    </div>
+</div>
+<jsp:include page="jsp/footer.jsp"/>
 </body>
 </html>
