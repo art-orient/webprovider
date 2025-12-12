@@ -33,7 +33,7 @@
     <div class="tariff-card">
         <h3>Семейный</h3>
         <p>Для всей семьи</p>
-        <a href="jsp\test.jsp">Подробнее</a>
+        <a href="jsp\tariff-family.jsp">Подробнее</a>
     </div>
 </div>
 <jsp:include page="jsp/footer.jsp"/>

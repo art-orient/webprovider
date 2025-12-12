@@ -4,7 +4,7 @@
 <%--<c:if test="${sessionScope.language != null}">--%>
 <%--    <fmt:setLocale value="${sessionScope.language}"/>--%>
 <%--</c:if>--%>
-<fmt:setBundle basename="ui"/>
+<%--<fmt:setBundle basename="ui"/>--%>
 <header style="display:flex;justify-content:flex-end;align-items:center;background-color:#002244;padding:10px 20px;">
     <div style="margin-right:auto;">
         <a href="/controller?command=home" style="color:white;text-decoration:none;font-weight:bold;">АртТелеком</a>
