@@ -11,8 +11,7 @@ public class LocaleManager {
   }
 
   public static void setLocale(String language) {
-    Locale locale = new Locale(language);
-    Locale.setDefault(locale);
+    Locale locale = Locale.forLanguageTag(language);
     resourceBundle = ResourceBundle.getBundle(MESSAGE_BUNDLE, locale);
   }
 

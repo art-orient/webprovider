@@ -7,3 +7,4 @@ logs/
 .mvn
 mvnw
 mvnw.cmd
+/out/
