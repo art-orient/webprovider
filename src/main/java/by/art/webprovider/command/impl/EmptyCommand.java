@@ -5,8 +5,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
 import static by.art.webprovider.command.PagePath.ERROR_PAGE;
-import static by.art.webprovider.util.Constant.CURRENT_PAGE;
 
 /**
  * The command is responsible for going to the error page for an empty or invalid command

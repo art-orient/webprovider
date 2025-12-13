@@ -6,9 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static by.art.webprovider.util.Constant.COMMAND;
-import static by.art.webprovider.util.Constant.ERROR_CODE;
-import static by.art.webprovider.util.Constant.ERROR_MESSAGE;
+import static by.art.webprovider.command.AttributeConstant.ERROR_CODE;
+import static by.art.webprovider.command.AttributeConstant.ERROR_MESSAGE;
+import static by.art.webprovider.command.CommandConstant.COMMAND;
 
 public class CommandFactory {
     static Logger logger = LogManager.getLogger();

@@ -2,7 +2,6 @@ package by.art.webprovider.controller;
 
 import by.art.webprovider.command.Command;
 import by.art.webprovider.command.CommandFactory;
-import by.art.webprovider.command.PagePath;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,11 +9,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 
-import static by.art.webprovider.util.Constant.CURRENT_PAGE;
-
+import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
+import static by.art.webprovider.command.PagePath.ERROR_PAGE;
 
 @WebServlet(urlPatterns = "/controller")
 public class Controller extends HttpServlet {
@@ -41,7 +39,7 @@ public class Controller extends HttpServlet {
       logger.debug("forward on page = {}", page);
       req.getRequestDispatcher(page).forward(req, resp);
     } else {
-      req.getRequestDispatcher(PagePath.ERROR_PAGE).forward(req, resp);
+      req.getRequestDispatcher(ERROR_PAGE).forward(req, resp);
     }
   }
 }
