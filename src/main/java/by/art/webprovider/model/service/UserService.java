@@ -16,7 +16,7 @@ public interface UserService {
   /**
    * Сhecks if the username is busy or free
    *
-   * @param username {@link String} the username
+   * @param username         {@link String} the username
    * @param validationStatus {@link StringBuilder} the validation status
    * @return the boolean
    * @throws ServiceException the service exception
@@ -40,7 +40,7 @@ public interface UserService {
    * @return the boolean
    * @throws ServiceException the service exception
    */
-  boolean validateCredentialsAndActivity (String username, String password) throws ServiceException;
+  boolean validateCredentialsAndActivity(String username, String password) throws ServiceException;
 
   /**
    * Finds the user by his username
@@ -54,7 +54,7 @@ public interface UserService {
   /**
    * Finds all users
    *
-   * @param limit number of users per page
+   * @param limit  number of users per page
    * @param offset index of the first user on the page
    * @return {@link List} of {@link User} the list of found users
    * @throws ServiceException the service exception
@@ -90,12 +90,12 @@ public interface UserService {
   /**
    * Validates user data
    *
-   * @param username {@link String} the username
-   * @param password {@link String} the password
-   * @param confirmPassword {@link String} the confirmed password
-   * @param firstname {@link String} the first name
-   * @param lastname {@link String} the last name
-   * @param email {@link String} the e-mail
+   * @param username         {@link String} the username
+   * @param password         {@link String} the password
+   * @param confirmPassword  {@link String} the confirmed password
+   * @param firstname        {@link String} the first name
+   * @param lastname         {@link String} the last name
+   * @param email            {@link String} the e-mail
    * @param validationStatus {@link StringBuilder} the validation status
    * @return the boolean
    */
