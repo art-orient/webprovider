@@ -10,11 +10,11 @@ import jakarta.servlet.http.HttpServletRequest;
  */
 public interface Command {
 
-    /**
-     * Execute command.
-     *
-     * @param req {@link HttpServletRequest} the request
-     * @return {@link String} the string containing page path
-     */
-    String execute(HttpServletRequest req);
+  /**
+   * Execute command.
+   *
+   * @param req {@link HttpServletRequest} the request
+   * @return {@link String} the string containing page path
+   */
+  String execute(HttpServletRequest req);
 }

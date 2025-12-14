@@ -15,12 +15,12 @@ import static by.art.webprovider.command.PagePath.ERROR_PAGE;
  * @see Command
  */
 public class EmptyCommand implements Command {
-    private static final Logger logger = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger();
 
-    @Override
-    public String execute(HttpServletRequest req) {
-        logger.debug("redirect on error page");
-        req.getSession().setAttribute(CURRENT_PAGE, ERROR_PAGE);
-        return ERROR_PAGE;
-    }
+  @Override
+  public String execute(HttpServletRequest req) {
+    logger.debug("redirect on error page");
+    req.getSession().setAttribute(CURRENT_PAGE, ERROR_PAGE);
+    return ERROR_PAGE;
+  }
 }
