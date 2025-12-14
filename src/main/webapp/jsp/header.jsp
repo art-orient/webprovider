@@ -9,8 +9,20 @@
     <div style="margin-right:auto;">
         <a href="/controller?command=home" style="color:white;text-decoration:none;font-weight:bold;">АртТелеком</a>
     </div>
-    <a href="/controller?command=" style="color:white;margin-left:20px;text-decoration:none;font-weight:bold;">Вход</a>
-    <a href="#" style="color:white;margin-left:20px;text-decoration:none;font-weight:bold;">Регистрация</a>
+    <c:if test="${sessionScope.username == null}">
+        <li>
+            <form action="controller" method="get">
+                <input type="hidden" name="command" value="login"/>
+                <input type="submit" value='<fmt:message key="ui.login"/>'/>
+            </form>
+        </li>
+        <li>
+            <form action="controller" method="get">
+                <input type="hidden" name="command" value="check_reg_status"/>
+                <input type="submit" value='<fmt:message key="ui.newUser"/>'/>
+            </form>
+        </li>
+    </c:if>
     <a href="#" style="color:white;margin-left:20px;text-decoration:none;font-weight:bold;">RU</a> |
     <a href="#" style="color:white;margin-left:20px;text-decoration:none;font-weight:bold;">BY</a> |
     <a href="#" style="color:white;text-decoration:none;font-weight:bold;">EN</a>

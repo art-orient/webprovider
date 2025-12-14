@@ -8,3 +8,4 @@ logs/
 mvnw
 mvnw.cmd
 /out/
+src/main/resources/config.properties
