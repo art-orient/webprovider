@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingQueue;
 
 public enum ConnectionPool {
 
@@ -32,7 +31,7 @@ public enum ConnectionPool {
   }
 
   public void initPool() throws ConnectionPoolException {
-    freeConnections = new LinkedBlockingQueue<>(POOL_SIZE);
+    freeConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     givenAwayConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     String driverName = ConfigManager.getProperty(DB_DRIVER);
     String url = ConfigManager.getProperty(DB_URL);
