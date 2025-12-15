@@ -24,6 +24,14 @@ public interface UserService {
   boolean checkIsUsernameBusy(String username, StringBuilder validationStatus) throws ServiceException;
 
   /**
+   * Сhecks if the user logs into the application first
+   *
+   * @return the boolean
+   * @throws ServiceException the service exception
+   */
+  boolean isFirstUser() throws ServiceException;
+
+  /**
    * Registers a new user
    *
    * @param user {@link User} the user

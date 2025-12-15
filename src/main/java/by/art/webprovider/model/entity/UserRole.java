@@ -7,7 +7,7 @@ package by.art.webprovider.model.entity;
  * @version 1.0
  */
 public enum UserRole {
-    GUEST,
-    CLIENT,
-    ADMIN
+  GUEST,
+  CLIENT,
+  ADMIN
 }

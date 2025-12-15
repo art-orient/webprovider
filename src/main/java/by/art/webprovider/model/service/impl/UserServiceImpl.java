@@ -6,6 +6,7 @@ import by.art.webprovider.model.dao.UserDao;
 import by.art.webprovider.model.dao.impl.UserDaoJdbc;
 import by.art.webprovider.model.entity.User;
 import by.art.webprovider.model.service.UserService;
+import by.art.webprovider.model.service.validator.UserValidator;
 import by.art.webprovider.util.ErrorMessageManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,6 +38,15 @@ public class UserServiceImpl implements UserService {
       validationStatus.append(ErrorMessageManager.getMessage("msg.nameExists")).append("\n");
     }
     return isUsernameBusy;
+  }
+
+  @Override
+  public boolean isFirstUser() throws ServiceException {
+    try {
+      return userDao.countUsers() == 0;
+    } catch (ProviderDatabaseException e) {
+      throw new ServiceException("An error occurred while counting users in the database", e);
+    }
   }
 
   @Override
@@ -106,31 +116,31 @@ public class UserServiceImpl implements UserService {
   public boolean isValidUser(String username, String password, String confirmPassword, String firstname,
                              String lastname, String email, StringBuilder validationStatus) {
     boolean isValidUser = true;
-//    if (UserValidator.isNotValidUsername(username)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidUsername")).append("\n");
-//      isValidUser = false;
-//    }
-//    if (UserValidator.isNotValidPassword(password)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidPassword")).append("\n");
-//      isValidUser = false;
-//    }
-//    if (UserValidator.isNotEqualsPasswords(password, confirmPassword)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notConfirmPassword")).append("\n");
-//      isValidUser = false;
-//    }
-//    if (UserValidator.isNotValidName(firstname)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidFirstname")).append("\n");
-//      isValidUser = false;
-//    }
-//    if (UserValidator.isNotValidName(lastname)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidLastname")).append("\n");
-//      isValidUser = false;
-//    }
-//    if (UserValidator.isNotValidEmail(email)) {
-//      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidEmail"));
-//      isValidUser = false;
-//    }
-//    logger.log(Level.INFO, "User {} is valid = {}", username, isValidUser);
+    if (UserValidator.isNotValidUsername(username)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidUsername")).append("\n");
+      isValidUser = false;
+    }
+    if (UserValidator.isNotValidPassword(password)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidPassword")).append("\n");
+      isValidUser = false;
+    }
+    if (UserValidator.isNotEqualsPasswords(password, confirmPassword)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notConfirmPassword")).append("\n");
+      isValidUser = false;
+    }
+    if (UserValidator.isNotValidName(firstname)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidFirstname")).append("\n");
+      isValidUser = false;
+    }
+    if (UserValidator.isNotValidName(lastname)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidLastname")).append("\n");
+      isValidUser = false;
+    }
+    if (UserValidator.isNotValidEmail(email)) {
+      validationStatus.append(ErrorMessageManager.getMessage("msg.notValidEmail"));
+      isValidUser = false;
+    }
+    logger.info("User {} is valid = {}", username, isValidUser);
     return isValidUser;
   }
 }

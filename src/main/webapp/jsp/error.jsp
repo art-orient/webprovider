@@ -18,7 +18,6 @@
     <div class="container">
         <div class="text-content">
             <br><br>
-            <h2><fmt:message key="ui.error.headline"/></h2>
             <p>
                 <fmt:message key="ui.error.code"/> <c:out value="${errorCode}"/>
                 <c:if test="${errorCode == null}">
