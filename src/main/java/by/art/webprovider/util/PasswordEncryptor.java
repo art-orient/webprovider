@@ -1,4 +1,4 @@
-package by.art.webprovider.command.util;
+package by.art.webprovider.util;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

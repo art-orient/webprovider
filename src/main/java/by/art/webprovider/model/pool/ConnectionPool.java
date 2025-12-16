@@ -55,7 +55,7 @@ public enum ConnectionPool {
     logger.info("Database connection pool created");
     if (freeConnections.isEmpty()) {
       logger.error("connection pool initialization error");
-      throw new ConnectionPoolException("connection pool initialization error");
+      throw new ExceptionInInitializerError("connection pool initialization error");
     }
   }
 

@@ -1,4 +1,4 @@
-package by.art.webprovider.command.util;
+package by.art.webprovider.util;
 
 /**
  * The utility is responsible for xss protection

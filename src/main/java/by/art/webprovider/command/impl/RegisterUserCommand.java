@@ -1,8 +1,8 @@
 package by.art.webprovider.command.impl;
 
 import by.art.webprovider.command.Command;
-import by.art.webprovider.command.util.PasswordEncryptor;
-import by.art.webprovider.command.util.XssProtection;
+import by.art.webprovider.util.PasswordEncryptor;
+import by.art.webprovider.util.XssProtection;
 import by.art.webprovider.exception.ServiceException;
 import by.art.webprovider.model.entity.User;
 import by.art.webprovider.model.entity.UserRole;
