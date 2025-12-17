@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
+import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
 import static by.art.webprovider.command.PagePath.INDEX_PAGE;
 
 /**
@@ -18,6 +20,7 @@ public class HomeCommand implements Command {
 
   @Override
   public String execute(HttpServletRequest req) {
+    req.getSession().setAttribute(CURRENT_PAGE, INDEX_PAGE);
     logger.debug("redirect to index page");
     return INDEX_PAGE;
   }

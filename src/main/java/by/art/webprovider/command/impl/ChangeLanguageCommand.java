@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
 import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
+import static by.art.webprovider.command.PagePath.INDEX_PAGE;
 
 /**
  * The command is responsible for changing the interface language
@@ -15,7 +16,7 @@ import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
  * @author Aliaksandr Artsikhovich
  * @see Command
  */
-public class LanguageCommand implements Command {
+public class ChangeLanguageCommand implements Command {
   private static final Logger logger = LogManager.getLogger();
 
   @Override
@@ -24,6 +25,10 @@ public class LanguageCommand implements Command {
     req.getSession().setAttribute(LANGUAGE, selectedLanguage);
     logger.atDebug().log("change of language {}", selectedLanguage);
     LocaleManager.setLocale(selectedLanguage);
-    return (String) req.getSession().getAttribute(CURRENT_PAGE);
+    String currentPage = (String) req.getSession().getAttribute(CURRENT_PAGE);
+    if (currentPage == null) {
+      currentPage = INDEX_PAGE;
+    }
+    return currentPage;
   }
 }

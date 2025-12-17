@@ -1,10 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
+<%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <c:if test="${sessionScope.language != null}">
     <fmt:setLocale value="${sessionScope.language}"/>
 </c:if>
 <fmt:setBundle basename="ui"/>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
 <section id="error" class="section">
     <div class="container">
         <div class="text-content">
-            <br><br>
+            <br><br><br>
             <p>
                 <fmt:message key="ui.error.code"/> <c:out value="${errorCode}"/>
                 <c:if test="${errorCode == null}">

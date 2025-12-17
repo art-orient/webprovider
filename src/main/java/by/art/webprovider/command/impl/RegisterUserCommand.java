@@ -13,8 +13,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static by.art.webprovider.command.AttributeConstant.CONFIRM_PASSWORD;
+import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
 import static by.art.webprovider.command.AttributeConstant.EMAIL;
 import static by.art.webprovider.command.AttributeConstant.FIRSTNAME;
+import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
 import static by.art.webprovider.command.AttributeConstant.LASTNAME;
 import static by.art.webprovider.command.AttributeConstant.PASSWORD;
 import static by.art.webprovider.command.AttributeConstant.REGISTRATION_STATUS;
@@ -74,6 +76,7 @@ public class RegisterUserCommand implements Command {
             registrationStatus = validationStatus.toString();
         }
         req.setAttribute(REGISTRATION_STATUS, registrationStatus);
+        req.getSession().setAttribute(CURRENT_PAGE, CHECK_REG_STATUS_PAGE);
         return CHECK_REG_STATUS_PAGE;
     }
 

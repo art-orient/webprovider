@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
+import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
 import static by.art.webprovider.command.AttributeConstant.REGISTRATION_STATUS;
 import static by.art.webprovider.command.PagePath.REGISTRATION_PAGE;
 
@@ -25,6 +27,7 @@ public class CheckRegStatusCommand implements Command {
         }
         req.getSession().setAttribute(REGISTRATION_STATUS, registrationStatus);
         logger.debug("Created registration status");
+        req.getSession().setAttribute(CURRENT_PAGE, REGISTRATION_PAGE);
         return REGISTRATION_PAGE;
     }
 }
