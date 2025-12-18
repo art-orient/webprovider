@@ -40,7 +40,7 @@ public interface UserDao {
    * @return the boolean[] are credentials valid and is active user
    * @throws ProviderDatabaseException the ProviderDatabaseException exception
    */
-  boolean validateCredentialsAndActivity(String username, String password) throws ProviderDatabaseException;
+  boolean[] validateCredentialsAndActivity(String username, String password) throws ProviderDatabaseException;
 
   /**
    * Сounts the number of all users

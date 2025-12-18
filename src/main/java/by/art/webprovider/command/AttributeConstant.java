@@ -12,6 +12,7 @@ public final class AttributeConstant {
   public static final String FIRSTNAME = "firstname";
   public static final String LASTNAME = "lastname";
   public static final String EMAIL = "email";
+  public static final String ERROR = "error";
 
   private AttributeConstant() {
   }

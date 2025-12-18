@@ -7,7 +7,8 @@
 <fmt:setBundle basename="ui"/>
 <header style="display:flex;justify-content:flex-end;align-items:center;background-color:#002244;padding:10px 20px;">
     <div style="margin-right:auto;">
-        <a href="/controller?command=home" style="color:white;text-decoration:none;font-weight:bold;">АртТелеком</a>
+        <a href="/controller?command=home" style="color:white;text-decoration:none;font-weight:bold;"><fmt:message
+            key="ui.artTelecom"/></a>
     </div>
     <ul style="display:flex;list-style:none;margin:0;padding:0;gap:20px;align-items:center;">
         <c:if test="${sessionScope.username == null}">

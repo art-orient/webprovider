@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public boolean validateCredentialsAndActivity(String username, String password) throws ServiceException {
+  public boolean[] validateCredentialsAndActivity(String username, String password) throws ServiceException {
     try {
       return userDao.validateCredentialsAndActivity(username, password);
     } catch (ProviderDatabaseException e) {

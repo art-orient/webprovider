@@ -108,8 +108,9 @@ public class UserDaoJdbc implements UserDao {
   }
 
   @Override
-  public boolean validateCredentialsAndActivity(String username, String password)
+  public boolean[] validateCredentialsAndActivity(String username, String password)
           throws ProviderDatabaseException {
+    boolean[] result = new boolean[2];
     boolean isValid = false;
     boolean isActive = false;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
@@ -122,11 +123,13 @@ public class UserDaoJdbc implements UserDao {
           isActive = resultSet.getBoolean(ACTIVE);
         }
       }
+      result[0] = isValid;
+      result[1] = isActive;
       logger.debug("Username and password are valid");
     } catch (SQLException e) {
       throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
     }
-    return isValid && isActive;
+    return result;
   }
 
   @Override

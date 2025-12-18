@@ -48,7 +48,7 @@ public interface UserService {
    * @return the boolean
    * @throws ServiceException the service exception
    */
-  boolean validateCredentialsAndActivity(String username, String password) throws ServiceException;
+  boolean[] validateCredentialsAndActivity(String username, String password) throws ServiceException;
 
   /**
    * Finds the user by his username
