@@ -20,12 +20,7 @@ public class ContextListener implements ServletContextListener {
 
   @Override
   public void contextInitialized(ServletContextEvent servletContextEvent) {
-    try {
       ConnectionPool.INSTANCE.initPool();
-    } catch (ConnectionPoolException e) {
-      logger.error("Connection pool initialization error", e);
-      throw new RuntimeException("Connection pool initialization error", e);
-    }
   }
 
   @Override

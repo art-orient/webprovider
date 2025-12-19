@@ -25,6 +25,20 @@
                 </form>
             </li>
         </c:if>
+        <c:if test="${sessionScope.username != null}">
+            <li>
+                <form action="controller" method="get">
+                    <input type="hidden" name="command" value="profile"/>
+                    <input type="submit" value='<fmt:message key="ui.profile"/>'/>
+                </form>
+            </li>
+            <li>
+                <form action="controller" method="get">
+                    <input type="hidden" name="command" value="logout"/>
+                    <input type="submit" value='<fmt:message key="ui.logout"/>'/>
+                </form>
+            </li>
+        </c:if>
         <li>
             <a href="controller?command=change_language&language=ru"
                style="color:${sessionScope.language == 'ru' ? '#FFD700' : 'white'};

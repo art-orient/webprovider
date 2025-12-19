@@ -20,17 +20,18 @@ public enum ConnectionPool {
 
   private final Logger logger = LogManager.getLogger();
   private static final int POOL_SIZE = 8;
-  private BlockingQueue<ProxyConnection> freeConnections;
-  private BlockingQueue<ProxyConnection> givenAwayConnections;
   private static final String DB_DRIVER = "db.driver";
   private static final String DB_URL = "db.url";
   private static final String DB_USERNAME = "db.username";
   private static final String DB_PASSWORD = "db.password";
+  private BlockingQueue<ProxyConnection> freeConnections;
+  private BlockingQueue<ProxyConnection> givenAwayConnections;
+
 
   ConnectionPool() {
   }
 
-  public void initPool() throws ConnectionPoolException {
+  public void initPool() {
     freeConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     givenAwayConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     String driverName = ConfigManager.getProperty(DB_DRIVER);
@@ -40,8 +41,8 @@ public enum ConnectionPool {
     try {
       Class.forName(driverName);
     } catch (ClassNotFoundException e) {
-      logger.error("MySQL driver not found", e);
-      throw new ConnectionPoolException("MySQL driver not found", e);
+      logger.fatal("MySQL driver not found", e);
+      throw new ExceptionInInitializerError("MySQL driver not found");
     }
     logger.debug("MySQL driver loaded");
     for (int i = 0; i < POOL_SIZE; i++) {
@@ -49,12 +50,12 @@ public enum ConnectionPool {
         Connection connection = DriverManager.getConnection(url, username, password);
         freeConnections.add(new ProxyConnection(connection));
       } catch (SQLException e) {
-        logger.error("database access error, connection not received", e);
+        logger.fatal("database access error, connection not received", e);
       }
     }
     logger.info("Database connection pool created");
     if (freeConnections.isEmpty()) {
-      logger.error("connection pool initialization error");
+      logger.fatal("connection pool initialization error");
       throw new ExceptionInInitializerError("connection pool initialization error");
     }
   }
