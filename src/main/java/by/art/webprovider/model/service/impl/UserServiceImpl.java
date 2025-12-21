@@ -1,6 +1,6 @@
 package by.art.webprovider.model.service.impl;
 
-import by.art.webprovider.exception.ProviderDatabaseException;
+import by.art.webprovider.exception.DaoException;
 import by.art.webprovider.exception.ServiceException;
 import by.art.webprovider.model.dao.UserDao;
 import by.art.webprovider.model.dao.impl.UserDaoJdbc;
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     boolean isUsernameBusy;
     try {
       isUsernameBusy = userDao.checkIsUsernameBusy(username);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       validationStatus.append(e.getMessage());
       throw new ServiceException("Database access error occurred while validating username", e);
     }
@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
   public boolean isFirstUser() throws ServiceException {
     try {
       return userDao.countUsers() == 0;
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while counting users in the database", e);
     }
   }
@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
   public boolean registerUser(User user) throws ServiceException {
     try {
       return userDao.createUser(user);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("user registration error", e);
     }
   }
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
   public boolean[] validateCredentialsAndActivity(String username, String password) throws ServiceException {
     try {
       return userDao.validateCredentialsAndActivity(username, password);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("Database access error occurred while validating credentials", e);
     }
   }
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
   public Optional<User> findUserByUsername(String username) throws ServiceException {
     try {
       return userDao.findUserByUsername(username);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while retrieving the user from the database", e);
     }
   }
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
   public List<User> findUsers(int limit, int offset) throws ServiceException {
     try {
       return userDao.findUsers(limit, offset);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while retrieving users from the database", e);
     }
   }
@@ -89,7 +89,7 @@ public class UserServiceImpl implements UserService {
   public int countUsers() throws ServiceException {
     try {
       return userDao.countUsers();
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while retrieving number of users", e);
     }
   }
@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
   public boolean updateUser(User user) throws ServiceException {
     try {
       return userDao.updateUser(user);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while updating of user", e);
     }
   }
@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService {
   public boolean deleteUser(String username) throws ServiceException {
     try {
       return userDao.deleteUser(username);
-    } catch (ProviderDatabaseException e) {
+    } catch (DaoException e) {
       throw new ServiceException("An error occurred while deleting of user", e);
     }
   }

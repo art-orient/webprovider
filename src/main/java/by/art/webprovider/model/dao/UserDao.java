@@ -1,6 +1,6 @@
 package by.art.webprovider.model.dao;
 
-import by.art.webprovider.exception.ProviderDatabaseException;
+import by.art.webprovider.exception.DaoException;
 import by.art.webprovider.model.entity.User;
 
 import java.util.List;
@@ -19,18 +19,18 @@ public interface UserDao {
    *
    * @param user {@link User} the user
    * @return the boolean is the user saved
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception     *
+   * @throws DaoException the DaoException exception     *
    */
-  boolean createUser(User user) throws ProviderDatabaseException;
+  boolean createUser(User user) throws DaoException;
 
   /**
    * Сhecks if the username is busy or free
    *
    * @param username {@link String} the username
    * @return the boolean is the username busy
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  boolean checkIsUsernameBusy(String username) throws ProviderDatabaseException;
+  boolean checkIsUsernameBusy(String username) throws DaoException;
 
   /**
    * Validates user credentials and activity
@@ -38,35 +38,35 @@ public interface UserDao {
    * @param username {@link String} the username
    * @param password {@link String} the password
    * @return the boolean[] are credentials valid and is active user
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  boolean[] validateCredentialsAndActivity(String username, String password) throws ProviderDatabaseException;
+  boolean[] validateCredentialsAndActivity(String username, String password) throws DaoException;
 
   /**
    * Сounts the number of all users
    *
    * @return the number of all users
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  int countUsers() throws ProviderDatabaseException;
+  int countUsers() throws DaoException;
 
   /**
    * Finds the user by his username
    *
    * @param username {@link String} the username
    * @return {@link Optional} of {@link User} the optional of found user
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  Optional<User> findUserByUsername(String username) throws ProviderDatabaseException;
+  Optional<User> findUserByUsername(String username) throws DaoException;
 
   /**
    * Changes user data (role & activity), blocks and unblocks the user
    *
    * @param user {@link User} the user
    * @return the boolean is the user updated
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  boolean updateUser(User user) throws ProviderDatabaseException;
+  boolean updateUser(User user) throws DaoException;
 
   /**
    * Finds all users
@@ -74,17 +74,17 @@ public interface UserDao {
    * @param limit  number of users per page
    * @param offset index of the first user on the page
    * @return {@link List} of {@link User} the list of found users
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  List<User> findUsers(int limit, int offset) throws ProviderDatabaseException;
+  List<User> findUsers(int limit, int offset) throws DaoException;
 
   /**
    * Removes the user by his username
    *
    * @param username {@link String} the username
    * @return the boolean is the user deleted
-   * @throws ProviderDatabaseException the ProviderDatabaseException exception
+   * @throws DaoException the DaoException exception
    */
-  boolean deleteUser(String username) throws ProviderDatabaseException;
+  boolean deleteUser(String username) throws DaoException;
 }
 

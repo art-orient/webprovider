@@ -1,6 +1,6 @@
 package by.art.webprovider.model.dao.impl;
 
-import by.art.webprovider.exception.ProviderDatabaseException;
+import by.art.webprovider.exception.DaoException;
 import by.art.webprovider.model.dao.UserDao;
 import by.art.webprovider.model.entity.User;
 import by.art.webprovider.model.entity.UserRole;
@@ -70,7 +70,7 @@ public class UserDaoJdbc implements UserDao {
   }
 
   @Override
-  public boolean createUser(User user) throws ProviderDatabaseException {
+  public boolean createUser(User user) throws DaoException {
     boolean isAddedUser;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USER)) {
@@ -84,13 +84,13 @@ public class UserDaoJdbc implements UserDao {
       isAddedUser = (preparedStatement.executeUpdate() == 1);
       logger.debug("The user is saved in the database");
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return isAddedUser;
   }
 
   @Override
-  public boolean checkIsUsernameBusy(String username) throws ProviderDatabaseException {
+  public boolean checkIsUsernameBusy(String username) throws DaoException {
     boolean isUsernameBusy = false;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(GET_USERNAME)) {
@@ -102,14 +102,14 @@ public class UserDaoJdbc implements UserDao {
       }
       logger.atDebug().log(String.format("The user %s is already present in the database", username));
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return isUsernameBusy;
   }
 
   @Override
   public boolean[] validateCredentialsAndActivity(String username, String password)
-          throws ProviderDatabaseException {
+          throws DaoException {
     boolean[] result = new boolean[2];
     boolean isValid = false;
     boolean isActive = false;
@@ -127,13 +127,13 @@ public class UserDaoJdbc implements UserDao {
       result[1] = isActive;
       logger.debug("Username and password are valid");
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return result;
   }
 
   @Override
-  public int countUsers() throws ProviderDatabaseException {
+  public int countUsers() throws DaoException {
     int numberUsers = 0;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          Statement statement = connection.createStatement();
@@ -143,13 +143,13 @@ public class UserDaoJdbc implements UserDao {
       }
       logger.debug("The number of users retrieved from the database");
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return numberUsers;
   }
 
   @Override
-  public Optional<User> findUserByUsername(String username) throws ProviderDatabaseException {
+  public Optional<User> findUserByUsername(String username) throws DaoException {
     Optional<User> optionalUser = Optional.empty();
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(GET_USER_BY_USERNAME)) {
@@ -162,13 +162,13 @@ public class UserDaoJdbc implements UserDao {
       }
       logger.atDebug().log(String.format("The user %s got from the database", username));
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return optionalUser;
   }
 
   @Override
-  public List<User> findUsers(int limit, int offset) throws ProviderDatabaseException {
+  public List<User> findUsers(int limit, int offset) throws DaoException {
     List<User> users = new ArrayList<>();
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_USERS)) {
@@ -182,13 +182,13 @@ public class UserDaoJdbc implements UserDao {
       }
       logger.debug("Users got from the database");
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return users;
   }
 
   @Override
-  public boolean updateUser(User user) throws ProviderDatabaseException {
+  public boolean updateUser(User user) throws DaoException {
     boolean isUserUpdated;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_USER)) {
@@ -202,13 +202,13 @@ public class UserDaoJdbc implements UserDao {
       isUserUpdated = (preparedStatement.executeUpdate() == 1);
       logger.debug("The user {} is updated", user.getUsername());
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return isUserUpdated;
   }
 
   @Override
-  public boolean deleteUser(String username) throws ProviderDatabaseException {
+  public boolean deleteUser(String username) throws DaoException {
     boolean isUserDeleted;
     try (Connection connection = ConnectionPool.INSTANCE.getConnection();
          PreparedStatement preparedStatement = connection.prepareStatement(DELETE_USER)) {
@@ -216,7 +216,7 @@ public class UserDaoJdbc implements UserDao {
       isUserDeleted = (preparedStatement.executeUpdate() == 1);
       logger.debug("The user {} deleted", username);
     } catch (SQLException e) {
-      throw new ProviderDatabaseException(DATABASE_EXCEPTION, e);
+      throw new DaoException(DATABASE_EXCEPTION, e);
     }
     return isUserDeleted;
   }

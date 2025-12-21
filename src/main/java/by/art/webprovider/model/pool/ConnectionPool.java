@@ -27,7 +27,6 @@ public enum ConnectionPool {
   private BlockingQueue<ProxyConnection> freeConnections;
   private BlockingQueue<ProxyConnection> givenAwayConnections;
 
-
   ConnectionPool() {
   }
 

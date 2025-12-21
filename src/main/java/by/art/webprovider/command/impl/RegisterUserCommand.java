@@ -12,16 +12,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static by.art.webprovider.command.AttributeConstant.CONFIRM_PASSWORD;
-import static by.art.webprovider.command.AttributeConstant.CURRENT_PAGE;
-import static by.art.webprovider.command.AttributeConstant.EMAIL;
-import static by.art.webprovider.command.AttributeConstant.FIRSTNAME;
-import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
-import static by.art.webprovider.command.AttributeConstant.LASTNAME;
-import static by.art.webprovider.command.AttributeConstant.PASSWORD;
-import static by.art.webprovider.command.AttributeConstant.REGISTRATION_STATUS;
-import static by.art.webprovider.command.AttributeConstant.USERNAME;
+import static by.art.webprovider.command.RequestAttribute.CURRENT_PAGE;
 import static by.art.webprovider.command.PagePath.CHECK_REG_STATUS_PAGE;
+import static by.art.webprovider.command.RequestAttribute.REGISTRATION_STATUS;
+import static by.art.webprovider.command.RequestParameter.CONFIRM_PASSWORD;
+import static by.art.webprovider.command.RequestParameter.EMAIL;
+import static by.art.webprovider.command.RequestParameter.FIRSTNAME;
+import static by.art.webprovider.command.RequestParameter.LASTNAME;
+import static by.art.webprovider.command.RequestParameter.PASSWORD;
+import static by.art.webprovider.command.RequestParameter.USERNAME;
 
 /**
  * The command is responsible for registering a new user

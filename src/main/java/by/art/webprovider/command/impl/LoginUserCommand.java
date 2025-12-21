@@ -14,12 +14,12 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
 
-import static by.art.webprovider.command.AttributeConstant.ERROR;
-import static by.art.webprovider.command.AttributeConstant.LANGUAGE;
-import static by.art.webprovider.command.AttributeConstant.PASSWORD;
-import static by.art.webprovider.command.AttributeConstant.USERNAME;
+import static by.art.webprovider.command.RequestAttribute.ERROR;
 import static by.art.webprovider.command.PagePath.INDEX_PAGE;
 import static by.art.webprovider.command.PagePath.LOGIN_PAGE;
+import static by.art.webprovider.command.RequestParameter.LANGUAGE;
+import static by.art.webprovider.command.RequestParameter.PASSWORD;
+import static by.art.webprovider.command.RequestParameter.USERNAME;
 import static by.art.webprovider.model.dao.column.UserColumn.ROLE;
 
 /**

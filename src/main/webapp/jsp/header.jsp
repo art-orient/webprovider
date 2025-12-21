@@ -29,13 +29,13 @@
             <li>
                 <form action="controller" method="get">
                     <input type="hidden" name="command" value="profile"/>
-                    <input type="submit" value='<fmt:message key="ui.profile"/>'/>
+                    <input type="submit" class="header-button" value='<fmt:message key="ui.profile"/>'/>
                 </form>
             </li>
             <li>
                 <form action="controller" method="get">
                     <input type="hidden" name="command" value="logout"/>
-                    <input type="submit" value='<fmt:message key="ui.logout"/>'/>
+                    <input type="submit" class="header-button" value='<fmt:message key="ui.logout"/>'/>
                 </form>
             </li>
         </c:if>
