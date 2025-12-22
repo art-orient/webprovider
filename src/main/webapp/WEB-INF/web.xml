@@ -11,7 +11,11 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <error-page>
-        <exception-type>java.lang.Exception</exception-type>
-        <location>/jsp/error.jsp</location>
+        <error-code>404</error-code>
+        <location>/jsp/error/error_404.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/jsp/error/error_500.jsp</location>
     </error-page>
 </web-app>

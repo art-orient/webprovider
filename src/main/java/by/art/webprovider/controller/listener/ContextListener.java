@@ -1,4 +1,4 @@
-package by.art.webprovider.listener;
+package by.art.webprovider.controller.listener;
 
 import by.art.webprovider.exception.ConnectionPoolException;
 import by.art.webprovider.model.pool.ConnectionPool;

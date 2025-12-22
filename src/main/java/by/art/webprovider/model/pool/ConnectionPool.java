@@ -50,6 +50,7 @@ public enum ConnectionPool {
         freeConnections.add(new ProxyConnection(connection));
       } catch (SQLException e) {
         logger.fatal("database access error, connection not received", e);
+        throw new ExceptionInInitializerError("database access error, connection not received");
       }
     }
     logger.info("Database connection pool created");

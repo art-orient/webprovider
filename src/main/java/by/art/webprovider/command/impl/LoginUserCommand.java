@@ -69,6 +69,7 @@ public class LoginUserCommand implements Command {
             }
         } catch (ServiceException e) {
             logger.log(Level.ERROR, e.getMessage(), e);
+            page = INDEX_PAGE;
         }
         return page;
     }

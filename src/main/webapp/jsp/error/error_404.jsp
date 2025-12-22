@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="../header.jsp"/>
 <section id="error" class="section">
     <div class="container">
         <div class="text-content">
@@ -35,6 +35,6 @@
         </div>
     </div>
 </section>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="../footer.jsp"/>
 </body>
 </html>

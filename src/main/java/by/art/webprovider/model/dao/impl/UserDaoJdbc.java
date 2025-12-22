@@ -100,7 +100,7 @@ public class UserDaoJdbc implements UserDao {
           isUsernameBusy = true;
         }
       }
-      logger.atDebug().log(String.format("The user %s is already present in the database", username));
+      logger.atDebug().log("The user {} is already present in the database", username);
     } catch (SQLException e) {
       throw new DaoException(DATABASE_EXCEPTION, e);
     }
@@ -160,7 +160,7 @@ public class UserDaoJdbc implements UserDao {
           optionalUser = Optional.of(user);
         }
       }
-      logger.atDebug().log(String.format("The user %s got from the database", username));
+      logger.atDebug().log("The user {} got from the database", username);
     } catch (SQLException e) {
       throw new DaoException(DATABASE_EXCEPTION, e);
     }
