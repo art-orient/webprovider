@@ -10,7 +10,8 @@
         &copy; 2025 <fmt:message key="ui.artFooter"/>
     </div>
     <div>
-        Контакты: <a href="mailto:info@arttelecom.by" style="color:gold;text-decoration:none;">info@arttelecom.by</a>
-        | Тел: +375 (29) 123-45-67
+        <fmt:message key="ui.contacts"/>:
+        <a href="mailto:info@arttelecom.by" style="color:gold;text-decoration:none;">info @arttelecom.by</a>
+        | <fmt:message key="ui.tel"/>: +375 (29) 123-45-67
     </div>
 </footer>

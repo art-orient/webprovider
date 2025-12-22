@@ -14,7 +14,7 @@ import static by.art.webprovider.command.PagePath.LOGIN_PAGE;
  * @author Aliaksandr Artsikhovich
  * @see Command
  */
-public class LoginCommand implements Command {
+public class LoginPageCommand implements Command {
     private static final Logger logger = LogManager.getLogger();
 
     @Override

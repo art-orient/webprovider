@@ -28,9 +28,6 @@ public enum ConnectionPool {
   private BlockingQueue<ProxyConnection> givenAwayConnections;
 
   ConnectionPool() {
-  }
-
-  public void initPool() {
     freeConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     givenAwayConnections = new ArrayBlockingQueue<>(POOL_SIZE);
     String driverName = ConfigManager.getProperty(DB_DRIVER);

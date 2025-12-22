@@ -4,7 +4,7 @@ import by.art.webprovider.command.impl.CheckRegStatusCommand;
 import by.art.webprovider.command.impl.EmptyCommand;
 import by.art.webprovider.command.impl.HomeCommand;
 import by.art.webprovider.command.impl.ChangeLanguageCommand;
-import by.art.webprovider.command.impl.LoginCommand;
+import by.art.webprovider.command.impl.LoginPageCommand;
 import by.art.webprovider.command.impl.LoginUserCommand;
 import by.art.webprovider.command.impl.LogoutCommand;
 import by.art.webprovider.command.impl.RegisterUserCommand;
@@ -23,7 +23,7 @@ public enum CommandType {
   HOME(new HomeCommand()),
   CHECK_REG_STATUS(new CheckRegStatusCommand()),
   REGISTER_USER(new RegisterUserCommand(new UserServiceImpl())),
-  LOGIN(new LoginCommand()),
+  LOGIN_PAGE(new LoginPageCommand()),
   LOGIN_USER(new LoginUserCommand(new UserServiceImpl())),
   LOGOUT(new LogoutCommand());
 

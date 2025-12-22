@@ -2,6 +2,8 @@ package by.art.webprovider.controller;
 
 import by.art.webprovider.command.Command;
 import by.art.webprovider.command.CommandType;
+import by.art.webprovider.exception.ConnectionPoolException;
+import by.art.webprovider.model.pool.ConnectionPool;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -41,6 +43,17 @@ public class Controller extends HttpServlet {
       req.getRequestDispatcher(page).forward(req, resp);
     } else {
       req.getRequestDispatcher(ERROR_PAGE).forward(req, resp);
+    }
+  }
+
+  @Override
+  public void destroy() {
+    super.destroy();
+    try {
+      ConnectionPool.INSTANCE.destroyPool();
+    } catch (ConnectionPoolException e) {
+      logger.error("Connection pool destruction error", e);
+      throw new RuntimeException("Connection pool destruction error", e);
     }
   }
 }

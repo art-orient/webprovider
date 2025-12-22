@@ -21,19 +21,19 @@
 
 <div class="tariffs">
     <div class="tariff-card">
-        <h3>Базовый</h3>
-        <p>Простой и доступный тариф</p>
-        <a href="jsp\tariff-basic.jsp">Подробнее</a>
+        <h3><fmt:message key="ui.base"/></h3>
+        <p><fmt:message key="ui.baseAbout"/></p>
+        <a href="jsp\tariff-basic.jsp"><fmt:message key="ui.detail"/></a>
     </div>
     <div class="tariff-card">
-        <h3>Премиум</h3>
-        <p>Максимум возможностей</p>
-        <a href="jsp\tariff-premium.jsp">Подробнее</a>
+        <h3><fmt:message key="ui.premium"/></h3>
+        <p><fmt:message key="ui.premiumAbout"/></p>
+        <a href="jsp\tariff-premium.jsp"><fmt:message key="ui.detail"/></a>
     </div>
     <div class="tariff-card">
-        <h3>Семейный</h3>
-        <p>Для всей семьи</p>
-        <a href="jsp\tariff-family.jsp">Подробнее</a>
+        <h3><fmt:message key="ui.family"/></h3>
+        <p><fmt:message key="ui.familyAbout"/></p>
+        <a href="jsp\tariff-family.jsp"><fmt:message key="ui.detail"/></a>
     </div>
 </div>
 <jsp:include page="jsp/footer.jsp"/>

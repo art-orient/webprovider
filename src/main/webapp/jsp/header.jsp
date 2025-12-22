@@ -14,7 +14,7 @@
         <c:if test="${sessionScope.username == null}">
             <li>
                 <form action="controller" method="get">
-                    <input type="hidden" name="command" value="login"/>
+                    <input type="hidden" name="command" value="login_page"/>
                     <input type="submit" class="header-button" value='<fmt:message key="ui.login"/>'/>
                 </form>
             </li>
